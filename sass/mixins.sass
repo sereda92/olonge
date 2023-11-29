@@ -1,0 +1,38 @@
+%extend-example
+    background-color: red
+    
+    
+@mixin text-style-1
+    color: $text-color-gray
+    text-align: center
+    font-weight: 700
+    line-height: 36px
+    letter-spacing: 0.1px
+
+@mixin text-style-2
+    color: $text-color-gray
+    text-align: center
+    font-weight: 500
+    line-height: 38px
+    letter-spacing: 0.2px
+@mixin background-img
+        width: 100%
+        background-size: cover
+        position: absolute
+        z-index: -1
+
+
+@mixin grid ($col, $margin)
+    float: left
+    background-color: black
+    margin-right: $margin
+    margin-bottom: $margin
+    height: 150px
+    @if ($col <=5)
+        width: 100%
+    @else 
+        width: ((100% - (($col - 1) * $margin)) / $col)
+
+    &:nth-child(#{$col}n)
+        margin-right:0
+        margin-bottom: 0
